@@ -1,4 +1,4 @@
-package model;
+package com.model;
 
 public class Ticket {
     private int ticketNumber;

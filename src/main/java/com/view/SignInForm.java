@@ -1,6 +1,6 @@
-package view;
+package com.view;
 
-import controller.SignInController;
+import com.controller.SignInController;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

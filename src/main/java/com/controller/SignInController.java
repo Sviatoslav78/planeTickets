@@ -1,7 +1,7 @@
-package controller;
+package com.controller;
 
 
-import model.AccountStatus;
+import com.model.AccountStatus;
 
 public class SignInController {
 
