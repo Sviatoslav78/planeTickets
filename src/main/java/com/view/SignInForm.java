@@ -11,8 +11,9 @@ public class SignInForm {
     private JTextField loginField;
     private JPasswordField passwordField;
     private JButton signInButton;
+    private JButton returnButton;
 
-    private SignInController signInController = new SignInController();
+    private SignInController signInController;
 
     public JPanel getSignInForm() {
         return signInForm;
@@ -21,6 +22,7 @@ public class SignInForm {
     public SignInForm() {
         signInButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
+                signInController = new SignInController();
                 switch (signInController.login(loginField.getText(), String.valueOf(passwordField.getPassword()))) {
                     case USER:
                         break;
@@ -29,6 +31,12 @@ public class SignInForm {
                     case NOT_DEFINED:
                         break;
                 }
+            }
+        });
+        returnButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                MainForm.getMainFrame().setVisible(true);
+                MainForm.getSignInFrame().setVisible(false);
             }
         });
     }
