@@ -28,7 +28,6 @@ public class MainForm {
     private static FlightService flightService = new FlightService();
     private static PassengerSevice passengerSevice = new PassengerSevice();
 
-
     public static JFrame getMainFrame() {
         return mainFrame;
     }
