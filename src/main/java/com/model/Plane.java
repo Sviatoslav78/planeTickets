@@ -1,6 +1,7 @@
 package com.model;
 
 public enum Plane {
+    NOT_DEFINED(0, "null"),
     AIRBUS(700, "Airbus"),
     Boeing(230, "Boeing"),
     ANTONOV(80, "Antonov"),

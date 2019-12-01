@@ -1,19 +1,13 @@
 package com.view;
 
-import com.model.Flight;
-import com.model.Passenger;
-import com.model.Plane;
-import com.model.Route;
+
+import com.service.FlightPassengerService;
 import com.service.FlightService;
-import com.service.HibernateFactory;
 import com.service.PassengerSevice;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 
 public class MainForm {
@@ -27,6 +21,7 @@ public class MainForm {
 
     private static FlightService flightService = new FlightService();
     private static PassengerSevice passengerSevice = new PassengerSevice();
+    private static FlightPassengerService flightPassengerService = new FlightPassengerService();
 
     public static JFrame getMainFrame() {
         return mainFrame;
@@ -48,6 +43,7 @@ public class MainForm {
                 signInFrame.pack();
                 signInFrame.setVisible(true);
                 mainFrame.setVisible(false);
+                signInFrame.setLocation(768,420);
             }
         });
         registerButton.addActionListener(new ActionListener() {
@@ -57,27 +53,27 @@ public class MainForm {
                 signUpFrame.pack();
                 signUpFrame.setVisible(true);
                 mainFrame.setVisible(false);
+                signUpFrame.setLocation(768,420);
             }
         });
     }
 
     public static void main(String[] args) {
-        HibernateFactory.HIBERNATE_FACTORY.getSessionFactory().openSession();
+//        HibernateFactory.HIBERNATE_FACTORY.getSessionFactory().openSession();
 
-        Flight flight = new Flight(Route.BERLIN.getName(), Route.KYIV.getName(), new GregorianCalendar(2019, Calendar.NOVEMBER, 17, 16,17), Plane.Boeing.getName(), new ArrayList<Passenger>());
-        Passenger passenger = new Passenger("Katya", 1000, new ArrayList<Flight>());
+//        Flight flight = new Flight(Route.BERLIN.getName(), Route.KYIV.getName(), new GregorianCalendar(2019, Calendar.NOVEMBER, 17, 16,17), Plane.Boeing.getName(), new ArrayList<Passenger>());
+//        Flight flight1 = new Flight(Route.MOSCOW.getName(), Route.BERLIN.getName(), new GregorianCalendar(2019, Calendar.DECEMBER, 17, 16,17), Plane.Boeing.getName(), new ArrayList<Passenger>());
+//        Passenger passenger = new Passenger("Svyat", "user", "user", new ArrayList<Flight>());
+//        passengerSevice.createNew(passenger);
 
-        flightService.createNew(flight);
-        passengerSevice.createNew(passenger);
+//        flightService.createNew(flight);
+//        flightService.createNew(flight1);
 
-        passenger.getFlights().add(flight);
-
-        passengerSevice.update(passenger);
 
         mainFrame.setContentPane(new MainForm().mainFormField);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.pack();
         mainFrame.setVisible(true);
-
+        mainFrame.setLocation(768,420);
     }
 }

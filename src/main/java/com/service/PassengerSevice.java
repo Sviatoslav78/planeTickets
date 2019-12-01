@@ -3,6 +3,7 @@ package com.service;
 import com.dao.PassengerDao;
 import com.model.Passenger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PassengerSevice {
@@ -32,5 +33,13 @@ public class PassengerSevice {
 
     public List<Passenger> getAll() {
         return passengerDao.getAll();
+    }
+
+    public boolean exists(Passenger passengerForCheck) {
+        List<Passenger> passengersForCheck = getAll();
+        for (Passenger p :passengersForCheck) {
+            if(p.getLogin().equalsIgnoreCase(passengerForCheck.getLogin())) return true;
+        }
+        return false;
     }
 }

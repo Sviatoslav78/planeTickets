@@ -1,6 +1,7 @@
 package com.model;
 
 public enum Route {
+    NOT_DEFINED("Choose"),
     KYIV("Kyiv"),
     PARIS("Paris"),
     LONDON("London"),

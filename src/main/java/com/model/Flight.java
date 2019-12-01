@@ -27,7 +27,7 @@ public class Flight {
     @Column(name = "plane")
     private String plane;
 
-    @ManyToMany(mappedBy = "flights")
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "flights")
     private List<Passenger> passengers = new ArrayList<>();
 
     public Flight(String departureCity, String arrivalCity, Calendar calendar, String plane, List<Passenger> passengers) {

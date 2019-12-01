@@ -22,7 +22,13 @@ public class Passenger {
     @Column(name = "cash")
     private int cash;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @Column(name = "login")
+    private String login;
+
+    @Column(name = "password")
+    private String password;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
     @JoinTable(
             name = "flight_passenger",
             joinColumns = { @JoinColumn(name = "passengerId") },
@@ -30,9 +36,11 @@ public class Passenger {
     )
     private List<Flight> flights = new ArrayList<>();
 
-    public Passenger(String fullName, int cash, List<Flight> flights) {
+    public Passenger(String fullName, String login, String password, List<Flight> flights) {
         this.fullName = fullName;
-        this.cash = cash;
+        this.cash = 0;
+        this.login = login;
+        this.password = password;
         this.flights = flights;
     }
 
